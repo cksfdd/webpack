@@ -4,8 +4,8 @@
 var webpack = require('webpack');
 var path = require('path');
 var fs= require('fs');
-var node_modules_dir = path.join(__dirname, 'node_modules');
-var controller_dir = path.join(__dirname, 'static/source/scripts/');
+var node_modules_dir = path.join(__dirname, "node_modules");
+var controller_dir = path.join(__dirname, "static/source/scripts/");
 var ExtractTextPlugin=require("extract-text-webpack-plugin");
 var TransferWebpackPlugin=require("transfer-webpack-plugin");
 var entryList={};
@@ -40,6 +40,9 @@ module.exports = {
                 test:/.(png|jpg|gif)$/,
                 loader:"url-loader",
                 query: { limit: 8192, name: "images/[name].[ext]" }
+            },{
+                test:path.resolve(node_modules_dir, "jquery/dist/jquery.js"),
+                loader: "expose?$!expose?jQuery"
             }
         ]
     },
