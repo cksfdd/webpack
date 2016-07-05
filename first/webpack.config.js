@@ -24,7 +24,8 @@ module.exports = {
     entry: entryList,
     output: {
         path: __dirname + '/dist',
-        filename: 'scripts/[name].min.js'
+        filename: 'scripts/[name].min.js',
+        vendor: ['jquery']
     },
     module: {
         loaders: [
@@ -40,18 +41,17 @@ module.exports = {
                 test:/.(png|jpg|gif)$/,
                 loader:"url-loader",
                 query: { limit: 8192, name: "images/[name].[ext]" }
-            },{
-                test:path.resolve(node_modules_dir, "jquery/dist/jquery.js"),
-                loader: "expose?$!expose?jQuery"
             }
         ]
     },
     plugins:[
         new TransferWebpackPlugin([
         { from: 'static/source/images', to: 'images' }
-    ]),
+        ]),
         new webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin("css/[name].css")
+        new ExtractTextPlugin("css/[name].css"),
+        new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery", "window.jQuery": "jquery"}),
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.js')
     ],
     resolve: {
         extensions: ["", ".js", ".jsx"]

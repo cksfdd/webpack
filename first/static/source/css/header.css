@@ -1,11 +1,15 @@
 body{
-    background:red;
+    background: #cccccc;;
 }
 div{
     width:300px;
-    height:20px;
+    height:200px;
     border:1px solid #000;
-    background:yellow url(../images/kobe2.jpg) no-repeat;
+    background:yellow url(/test/webpack/webpack.git/first/dist/images/kobe2.jpg) no-repeat;
+}
+img{
+    width:300px;
+    height:300px;
 }
 span{
     display:block;
