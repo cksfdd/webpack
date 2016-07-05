@@ -11,7 +11,7 @@ var TransferWebpackPlugin=require("transfer-webpack-plugin");
 var entryList={};
 
 
-//读取所有scripts的文件(返回目录下的所有文件的名称的数组)
+//读取scripts里所有的文件(返回目录下的所有文件的名称的数组)
 var list =fs.readdirSync(controller_dir);
 list.forEach(function(item,index){
     if(item.indexOf('.js')!=-1){
@@ -46,12 +46,12 @@ module.exports = {
     },
     plugins:[
         new TransferWebpackPlugin([
-        { from: 'static/source/images', to: 'images' }
+            { from: 'static/source/images', to: 'images' }
         ]),
         new webpack.NoErrorsPlugin(),
         new ExtractTextPlugin("css/[name].css"),
         new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery", "window.jQuery": "jquery"}),
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.js')
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'lib/vendor.js')
     ],
     resolve: {
         extensions: ["", ".js", ".jsx"]
