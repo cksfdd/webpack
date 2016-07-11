@@ -1,16 +1,1 @@
-body{
-    background:red;
-}
-div{
-    width:300px;
-    height:20px;
-    border:1px solid #000;
-    background:yellow url(../images/kobe2.jpg) no-repeat;
-}
-span{
-    display:block;
-    width:599px;
-    height:599px;
-    background:#ccc no-repeat;
-}
-/*# sourceMappingURL=header.css.map*/
+body{background:red}div{width:300px;height:20px;border:1px solid #000;background:#ff0 url(../images/kobe2.jpg) no-repeat}span{display:block;width:599px;height:599px;background:#ccc no-repeat}
