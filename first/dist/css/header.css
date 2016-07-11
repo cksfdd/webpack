@@ -1,1 +1,25 @@
+<<<<<<< HEAD
 body{background:red}div{width:300px;height:20px;border:1px solid #000;background:#ff0 url(../images/kobe2.jpg) no-repeat}span{display:block;width:599px;height:599px;background:#ccc no-repeat}
+=======
+body{
+    background: #cccccc;;
+}
+div{
+    width:300px;
+    height:200px;
+    border:1px solid #000;
+    background:yellow url(/test/webpack/webpack.git/first/dist/images/kobe2.jpg) no-repeat;
+}
+img{
+    width:300px;
+    height:300px;
+}
+span{
+    display:block;
+    width:599px;
+    height:599px;
+    background:#ccc no-repeat;
+}
+
+/*# sourceMappingURL=header.css.map*/
+>>>>>>> origin/master

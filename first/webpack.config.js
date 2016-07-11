@@ -11,7 +11,7 @@ var TransferWebpackPlugin=require("transfer-webpack-plugin");
 var entryList={};
 
 
-//读取所有scripts的文件(返回目录下的所有文件的名称的数组)
+//读取scripts里所有的文件(返回目录下的所有文件的名称的数组)
 var list =fs.readdirSync(controller_dir);
 list.forEach(function(item,index){
     if(item.indexOf('.js')!=-1){
@@ -23,9 +23,15 @@ list.forEach(function(item,index){
 module.exports = {
     entry: entryList,
     output: {
+<<<<<<< HEAD
         path: __dirname + '/dist',              //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它,名字可以随便起
         filename: 'scripts/[name].min.js',
         publicPath:'../'         //模板、样式、脚本、图片等资源对应的server上的路径
+=======
+        path: __dirname + '/dist',
+        filename: 'scripts/[name].min.js',
+        vendor: ['jquery']
+>>>>>>> origin/master
     },
     module: {
         loaders: [
@@ -41,18 +47,17 @@ module.exports = {
                 test:/.(png|jpg|gif)$/,
                 loader:"url-loader",
                 query: { limit: 8192, name: "images/[name].[ext]" }
-            },{
-                test:path.resolve(node_modules_dir, "jquery/dist/jquery.js"),
-                loader: "expose?$!expose?jQuery"
             }
         ]
     },
     plugins:[
         new TransferWebpackPlugin([
-        { from: 'static/source/images', to: 'images' }
-    ]),
+            { from: 'static/source/images', to: 'images' }
+        ]),
         new webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin("css/[name].css")
+        new ExtractTextPlugin("css/[name].css"),
+        new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery", "window.jQuery": "jquery"}),
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'lib/vendor.js')
     ],
     resolve: {
         extensions: ["", ".js", ".jsx"]
