@@ -42,6 +42,26 @@ module.exports = {
                 test:/.(png|jpg|gif)$/,
                 loader:"url-loader",
                 query: { limit: 8192, name: "images/[name].[ext]" }
+            }, {
+                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "url-loader",
+                query: {limit: 10000, name: "fonts/[name].[ext]", mimetype: "application/font-woff"}
+            }, {
+                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "url-loader",
+                query: {limit: 10000, name: "fonts/[name].[ext]", mimetype: "application/font-woff2"}
+            }, {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "url-loader",
+                query: {limit: 10000, name: "fonts/[name].[ext]", mimetype: "application/octet-stream"}
+            }, {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file-loader",
+                query: {name: "fonts/[name].[ext]"}
+            }, {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "url-loader",
+                query: {limit: 10000, name: "fonts/[name].[ext]", mimetype: "image/svg+xml"}
             }
         ]
     },
