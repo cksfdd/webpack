@@ -5,7 +5,7 @@ div{
     width:300px;
     height:200px;
     border:1px solid #000;
-    background:yellow url(/test/webpack/webpack/first/dist/images/kobe2.jpg) no-repeat;
+    background:yellow url(../images/kobe2.jpg) no-repeat;
 }
 img{
     width:300px;
