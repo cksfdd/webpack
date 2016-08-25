@@ -24,7 +24,7 @@ module.exports = {
     entry: entryList,
     output: {
         path: __dirname + '/dist',              //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它,名字可以随便起
-        filename: 'scripts/[name].min.js',
+        filename: 'scripts/[name]_[hash:5].min.js',// 生成的文件名字，加上了5位的 hash值。当然了，位数和加hash的位置，你可以自己定义，比如 '[name].js?[hash]'.
         publicPath:'../../',         //模板、样式、脚本、图片等资源对应的server上的路径
         vendor: ['jquery']
     },
