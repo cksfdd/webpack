@@ -62,6 +62,9 @@ module.exports = {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                 loader: "url-loader",
                 query: {limit: 10000, name: "fonts/[name].[ext]", mimetype: "image/svg+xml"}
+            }, {
+                test: path.resolve(node_modules_dir, 'jquery/dist/jquery.js'),
+                loader: "expose?$!expose?jQuery,$"
             }
         ]
     },
