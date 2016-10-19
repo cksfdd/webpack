@@ -1,0 +1,21 @@
+body{
+    background: #cccccc;;
+}
+div{
+    width:300px;
+    height:200px;
+    border:1px solid #000;
+    background:green url(../../images/kobe2.jpg) no-repeat;
+}
+img{
+    width:300px;
+    height:300px;
+}
+span{
+    display:block;
+    width:599px;
+    height:599px;
+    background:#ccc no-repeat;
+}
+
+/*# sourceMappingURL=main.css.map*/
